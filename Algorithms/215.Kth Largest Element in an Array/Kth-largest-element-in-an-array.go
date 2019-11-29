@@ -1,5 +1,6 @@
 package problem215
 
+//快排思想，最坏情况时间复杂度On^2
 func findKthLargest(nums []int, k int) int {
 	left := 0
 	right := len(nums)-1
@@ -32,4 +33,20 @@ func partition(nums []int, left int, right int) int {
 	}
 	nums[left] = temp
 	return left
+}
+
+//暴力解法, 时间复杂度
+func findKthLargest2(nums []int, k int) int {
+	for i := 0; i < k; i++ {
+		temp := nums[0]
+		location := 0
+		for j := 0; j < len(nums)-i; j++ {
+			if nums[j] > temp {
+				location = j
+				temp = nums[j]
+			}
+		}
+		nums[len(nums)-i-1], nums[location] = nums[location], nums[len(nums)-i-1]
+	}
+	return nums[len(nums)-k]
 }
