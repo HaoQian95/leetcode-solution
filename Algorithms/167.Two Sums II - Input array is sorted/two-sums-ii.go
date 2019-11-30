@@ -1,6 +1,6 @@
 package problem167
 
-//暴力解法
+//暴力解法 O(n^2)
 func twoSum(numbers []int, target int) []int {
 	res := make([]int, 0)
 	for i := 0; i < len(numbers); i++ {
