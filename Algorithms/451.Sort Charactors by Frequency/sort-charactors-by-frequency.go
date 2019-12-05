@@ -28,6 +28,7 @@ func frequencySort(s string) string {
 	i := 0
 	for k, v := range(Map) {
 		p[i] = Pair{k, v}
+		i++
 	}
 	sort.Sort(p)
 	for _, item := range(p) {
